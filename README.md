@@ -1,29 +1,23 @@
-# woodshop
-
-## Project setup
-
+# WoodenShop
+WoodenShop — это веб-приложение на Flask для демонстрации и продажи уникальной мебели из дерева. Сайт был разработан для предпринимателя, который занимается созданием и продажей высококачественной деревянной мебели.
+## Установка
+### Клонируйте репозиторий:
 ```
-npm install
+git clone https://github.com/yourusername/WoodenFurnitureStore.git
+cd WoodenFurnitureStore
 ```
-
-### Compiles and hot-reloads for development
-
+### Создайте и активируйте виртуальное окружение:
 ```
-npm run serve
+python3 -m venv venv
+source venv/bin/activate  # Для Windows: venv\Scripts\activate
 ```
-
-### Compiles and minifies for production
-
+### Установите необходимые зависимости:
 ```
-npm run build
+pip install -r requirements.txt
 ```
-
-### Lints and fixes files
-
+### Запустите приложение:
 ```
-npm run lint
+flask run
+После этого приложение будет доступно по адресу http://127.0.0.1:5000/.
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Использование
