@@ -1,0 +1,147 @@
+.contact-view {
+  min-height: 70vh;
+  background-color: #fff8e7;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: "Inter";
+}
+
+.contact-page {
+  width: 100%; /* Установите ширину контейнера */
+  max-width: 1360px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Центрирование контейнера */
+}
+
+.contact-info, .contact-form {
+  flex: 1;
+  margin: 20px;
+}
+
+.info {
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: #322;
+  display: flex;
+  align-items: center;
+}
+
+.icon-cont {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #AA612A;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-img {
+  width: 30px;
+  height: 30px;
+}
+
+p {
+  font-size: 22px;
+}
+
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.textblock {
+  width: calc(50% - 10px);
+  height: 50px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border: 2px solid #AA612A;
+  color: #333;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  font-size: 20px;
+  font-family: "Inter";
+}
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  max-height: 400px;
+  resize: vertical;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border: 2px solid #AA612A;
+  color: #333;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  font-size: 20px;
+  font-family: "Inter";
+}
+
+.btn {
+  width: 229px;
+  height: 40px;
+  background-color: #AA612A;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid #AA612A;
+  transition: .3s linear;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Inter";
+}
+
+.btn:hover {
+  background-color: #cf7b3c;
+}
+
+.heading {
+  width: 100%;
+  margin-bottom: 40px;
+  color: #322;
+  text-align: center;
+}
+
+.map-container {
+  width: 100%;
+  margin-top: 10px;
+  border: 2px solid #AA612A;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 980px) {
+  .contact-page {
+    width: 90%; /* Измените ширину контейнера на меньших экранах */
+    max-width: 600px;
+  }
+
+  .heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .contact-info, .contact-form {
+    flex: 100%;
+    margin-bottom: 20px;
+  }
+
+  .textblock {
+    width: 100%;
+  }
+}

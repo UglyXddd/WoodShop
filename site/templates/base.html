@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header id="top" class="header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Логотип компании" />
+                    <h1>WOODSHOP</h1>
+                </div>
+                <div class="flex-container">
+                    <a id="home-link" href="{{ url_for('index') }}" class="nav-link">Главная</a>
+                    <a id="about-link" href="{{ url_for('about') }}" class="nav-link">О нас</a>
+                    <div id="catalog-link" class="dropdown-catalog nav-link">
+                        <a href="{{ url_for('catalog') }}" class="nav-link-kat">Каталог</a>
+                        <div class="dropdown-content-catalog">
+                            <div class="submenu">
+                                <a href="#">Столешницы <span class="arrow">&#9654;</span></a>
+                                <div class="dropdown-content-submenu">
+                                    <a href="#">Деревянные</a>
+                                    <a href="#">Железные</a>
+                                </div>
+                            </div>
+                            <a href="#">Стулья</a>
+                            <a href="#">Шкафы</a>
+                            <a href="#">Кресла</a>
+                            <a href="#">Принадлежности</a>
+                            <a href="#">Скамейки</a>
+                            <a href="#">Кровати</a>
+                            <a href="#">Декор</a>
+                        </div>
+                    </div>
+                    <a id="contact-link" href="{{ url_for('contact') }}" class="nav-link">Контакты</a>
+                    <a id="faq-link" href="{{ url_for('faq') }}" class="nav-link">FAQ</a>
+                </div>
+                <div class="icon-container">
+                    <a href="{{ url_for('shopping_cart') }}" class="icon">
+                        🛒
+                        <span id="cart-count" class="cart-count">12</span>
+                    </a>
+                    <div class="dropdown-profile">
+                        <span class="icon" id="profile-menu-toggle">👤</span>
+                        <div class="dropdown-content-profile" id="profile-menu">
+                            {% if current_user.is_authenticated %}
+                                <p>{{ current_user.first_name }} {{ current_user.second_name }}{% if current_user.father_name %} {{ current_user.father_name }}{% endif %}</p>
+                                <a href="{{ url_for('order_history') }}">История заказов</a>
+                                <a href="{{ url_for('logout') }}">Выход</a>
+                            {% else %}
+                                <a href="{{ url_for('login') }}">Войти</a>
+                                <a href="{{ url_for('reg') }}">Зарегистрироваться</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="menu-icon">
+                        <img src="{{ url_for('static', filename='img/menu-icon.png') }}" alt="Menu Icon" />
+                    </div>
+                    <div class="mobile-menu">
+                        <a id="home-link" href="{{ url_for('index') }}" class="nav-link">Главная</a>
+                        <a id="about-link" href="{{ url_for('about') }}" class="nav-link">О нас</a>
+                        <a href="{{ url_for('catalog') }}" class="nav-link">Каталог</a>
+                        <a id="contact-link" href="{{ url_for('contact') }}" class="nav-link">Контакты</a>
+                        <a id="faq-link" href="{{ url_for('faq') }}" class="nav-link">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+        <div id="cart-notification" class="cart-notification">
+            Товар добавлен в корзину!
+            <span class="close-btn">&times;</span>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Добавляем новые элементы для мобильной версии -->
+                <div class="footer-dropdown">
+                    <button class="dropdown-button">
+                        Контакты <span class="arrow">&#9654;</span>
+                    </button>
+                    <div class="footer-dropdown-content">
+                        <p>Адрес<br />Москва, Вешних Вод, д 14, стр.2</p>
+                        <p>Email<br />contact@gmail.com</p>
+                        <p>Телефон<br />+79182315619</p>
+                    </div>
+                </div>
+
+                <div class="footer-dropdown">
+                    <button class="dropdown-button">
+                        Информация <span class="arrow">&#9654;</span>
+                    </button>
+                    <div class="footer-dropdown-content">
+                        <p><a href="#">Пользовательское соглашение</a></p>
+                        <p><a href="#">Политика конфиденциальности</a></p>
+                        <p><a href="#">Обработка персональных данных</a></p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>© 2024 WOODSHOP. All rights reserved.</p>
+                    </div>
+                </div>
+                <!-- Старые элементы футера, которые будут скрыты на мобильных устройствах -->
+                <div class="footer-info">
+                    <p><em>Контакты</em></p>
+                    <p>Адрес<br />Москва, Вешних Вод, д 14, стр.2</p>
+                    <p>Email<br />contact@gmail.com</p>
+                    <p>Телефон<br />+79182315619</p>
+                </div>
+                <div class="footer-catalog-1">
+                    <p>Столешницы</p>
+                    <p>Стулья</p>
+                    <p>Шкафы</p>
+                    <p>Кресла</p>
+                </div>
+                <div class="footer-catalog-2">
+                    <p>Принадлежности</p>
+                    <p>Скамейки</p>
+                    <p>Кровати</p>
+                    <p>Декор</p>
+                </div>
+                <div class="footer-brand">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo Image" class="logo-image" />
+                    <div>
+                        <h2 class="naming">WOODSHOP</h2>
+                        <p>Пользовательское соглашение</p>
+                        <p>Политика конфиденциальности</p>
+                        <p>Обработка персональных данных</p>
+                    </div>
+                    <div class="footer-images">
+                        <img src="{{ url_for('static', filename='img/tg-logo.png') }}" alt="Telegram" />
+                        <img src="{{ url_for('static', filename='img/vk-logo.png') }}" alt="Vkontakte" />
+                        <img src="{{ url_for('static', filename='img/whatsapp-logo.png') }}" alt="WhatsApp" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+        // Получаем текущий URL
+    const currentLocation = window.location.pathname;
+        // Устанавливаем класс active на соответствующий элемент <a>
+    if (currentLocation === '/') {
+        document.getElementById('home-link').classList.add('active');
+    } else if (currentLocation.includes('/about')) {
+        document.getElementById('about-link').classList.add('active');
+    } else if (currentLocation.includes('/catalog')) {
+        document.getElementById('catalog-link').classList.add('active');
+    } else if (currentLocation.includes('/contact')) {
+        document.getElementById('contact-link').classList.add('active');
+    } else if (currentLocation.includes('/faq')) {
+        document.getElementById('faq-link').classList.add('active');
+    }
+
+//show/hide profile
+    document.addEventListener('DOMContentLoaded', function() {
+        const profileMenuToggle = document.getElementById('profile-menu-toggle');
+        const profileMenu = document.getElementById('profile-menu');
+
+        profileMenuToggle.addEventListener('click', function() {
+            if (profileMenu.classList.contains('show')) {
+                profileMenu.classList.remove('show');
+                profileMenu.classList.add('hide');
+            } else {
+                profileMenu.classList.remove('hide');
+                profileMenu.classList.add('show');
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!profileMenu.contains(event.target) && !profileMenuToggle.contains(event.target)) {
+                profileMenu.classList.remove('show');
+                profileMenu.classList.add('hide');
+            }
+        });
+    });
+
+function updateCartCount() {
+    const cartCountElem = document.getElementById('cart-count'); // Элемент для отображения количества товаров
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let itemCount = 0; // Переменная для хранения количества товаров
+
+    cart.forEach(item => {
+        itemCount += item.quantity; // Увеличиваем количество товаров
+    });
+
+    if (cartCountElem) {
+        cartCountElem.textContent = itemCount; // Обновляем количество товаров на иконке
+    }
+}
+
+// Обновляем количество товаров при загрузке страницы
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Меню в хедере
+    const menuIcon = document.querySelector('.menu-icon');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    menuIcon.addEventListener('click', function() {
+        menuIcon.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+    });
+
+    // Закрытие дропдауна при увеличении экрана
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 1600) {
+            mobileMenu.classList.remove('open');
+            menuIcon.classList.remove('active');
+        }
+    });
+
+    // Выпадающие меню в футере
+    const footerDropdowns = document.querySelectorAll('.footer-dropdown');
+
+    footerDropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('.dropdown-button');
+        button.addEventListener('click', function(event) {
+            dropdown.classList.toggle('open');
+        });
+    });
+});
+</script>

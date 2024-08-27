@@ -1,0 +1,158 @@
+body {
+    background: url('../img/catalogback.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.catalog-wrapper {
+    background-color: #fff;
+    margin: 0px auto;
+    max-width: 1200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.category-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    flex: 1 1 calc(25% - 20px); /* 4 элемента в ряд */
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.catalog-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+}
+
+.filters {
+    width: 25%;
+    margin-right: 20px;
+    background-color: #E2C9AA;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.products {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-card {
+    width: 30%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-card .price {
+    font-size: 20px;
+    color: #000;
+}
+
+.product-card .add-to-cart {
+    display: none;
+}
+
+.product-card:hover .price {
+    display: none;
+}
+
+.product-card:hover .add-to-cart {
+    display: block;
+}
+
+.product-card .favorite {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background-image: url('path-to-heart-icon');
+}
+
+.product-card:hover .favorite {
+    display: block;
+}
+
+.apply-filters-btn {
+
+    bottom: 10px;
+    background-color: #a75b24;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.apply-filters-btn:hover {
+    background-color: #8a491d;
+}
+
+.price-button {
+    position: relative;
+    padding: 10px 20px;
+    background-color: #A9622C; /* Основной цвет */
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px; /* Увеличенный размер шрифта */
+    transition: background-color 0.3s ease;
+}
+
+.price-button .price-text {
+    display: block;
+}
+
+.price-button .cart-text {
+    display: none;
+}
+
+.product-card:hover .price-button {
+    background-color: #432D30; /* Цвет при наведении */
+}
+
+.product-card:hover .price-button .price-text {
+    display: none;
+}
+
+.product-card:hover .price-button .cart-text {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+
+
+.add-to-cart-btn {
+    display: none !important;
+}

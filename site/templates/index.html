@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main_page.css') }}">
+<!-- Основной контейнер -->
+<div class="container">
+    <!-- Баннер -->
+    <section id="banner">
+        <div class="inner">
+            <h1>WOODSHOP</h1>
+            <p>Мебель без единого гвоздя, долголетие бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла</p>
+            <ul class="actions special">
+                <li><a href="{{ url_for('catalog') }}" class="button big">Перейти в каталог!</a></li>
+            </ul>
+        </div>
+        <div class="scroll-down">
+            <a href="#who-i-am"><img src="{{ url_for('static', filename='img/arrow_down.png') }}" alt="Scroll Down"></a>
+        </div>
+    </section>
+
+    <!-- Секция "Who I Am" -->
+    <section id="who-i-am" class="wrapper style1">
+        <div class="inner">
+            <h2>Кто мы такие</h2>
+            <p>Мы крутые челики бла бла я правда не знаю что писать</p>
+        </div>
+        <div class="scroll-down">
+            <a href="#stuff-i-do"><img src="{{ url_for('static', filename='img/arrow_down.png') }}" alt="Scroll Down"></a>
+        </div>
+    </section>
+
+    <!-- Секция "Stuff I Do" -->
+    <section id="stuff-i-do" class="wrapper style2">
+        <div class="inner">
+            <h2>Stuff I Do</h2>
+            <div class="flex">
+                <div class="box person">
+                    <div class="image round">
+                        <img src="images/pic01.jpg" alt="Person 1">
+                    </div>
+                    <h3>Тут можно написать достоинство</h3>
+                    <p>Adipiscing lorem ipsum feugiat sed phasellus consequat.</p>
+                </div>
+                <div class="box person">
+                    <div class="image round">
+                        <img src="images/pic02.jpg" alt="Person 2">
+                    </div>
+                    <h3>Ну или же различная мебель (категории)</h3>
+                    <p>Adipiscing lorem ipsum feugiat sed phasellus consequat.</p>
+                </div>
+                <div class="box person">
+                    <div class="image round">
+                        <img src="images/pic03.jpg" alt="Person 3">
+                    </div>
+                    <h3>Nulla Tempus</h3>
+                    <p>Adipiscing lorem ipsum feugiat sed phasellus consequat.</p>
+                </div>
+                <div class="box person">
+                    <div class="image round">
+                        <img src="images/pic04.jpg" alt="Person 4">
+                    </div>
+                    <h3>Sed Feugiat</h3>
+                    <p>Adipiscing lorem ipsum feugiat sed phasellus consequat.</p>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#top"><img src="{{ url_for('static', filename='img/arrow_up.png') }}" alt="Scroll Up"></a>
+        </div>
+    </section>
+</div>
+
+<script>
+let debounceTimeout;
+document.addEventListener('scroll', function () {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(function () {
+        var scrollPosition = window.scrollY;
+        var body = document.body;
+
+        var banner = document.getElementById('banner').offsetTop;
+        var whoIam = document.getElementById('who-i-am').offsetTop;
+        var stuffIDo = document.getElementById('stuff-i-do').offsetTop;
+
+        // Вычисляем позиции для смены фона, на 2/3 экрана до начала секций
+        var whoIamTrigger = whoIam - window.innerHeight * (2 / 3);
+        var stuffIDoTrigger = stuffIDo - window.innerHeight * (2 / 3);
+
+        if (scrollPosition >= banner && scrollPosition < whoIamTrigger) {
+            body.style.backgroundImage = "url('static/img/primer3.jpg')";
+        } else if (scrollPosition >= whoIamTrigger && scrollPosition < stuffIDoTrigger) {
+            body.style.backgroundImage = "url('static/img/primer1.jpg')";
+        } else if (scrollPosition >= stuffIDoTrigger) {
+            body.style.backgroundImage = "url('static/img/primer2.jpg')";
+        } else {
+            body.style.backgroundImage = "url('static/img/primer3.jpg')";
+        }
+    }, 150); // Задержка в 150 миллисекунд
+});
+
+  document.querySelectorAll('.scroll-down a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,273 @@
+/* Основные стили для структуры страницы */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-size: cover; /* Изображение покроет весь экран, сохраняя пропорции */
+  background-position: center; /* Центрирование изображения */
+  background-image: url('../img/primer3.jpg'); /* Дефолтное фоновое изображение */
+  background-repeat: no-repeat; /* Изображение не повторяется */
+  background-attachment: fixed;
+  transition: background-image 0.5s ease-in-out;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+/* Основные стили для баннера и секций */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.9); /* Белый цвет с прозрачностью */
+}
+
+#banner, .wrapper {
+  min-height: 90vh; /* Используем min-height вместо height, чтобы секции адаптировались к содержимому */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box; /* Убедитесь, что padding и border не влияют на общую ширину и высоту */
+}
+
+.wrapper.style2 {
+  padding: 20px; /* Добавляем padding для отступов */
+  margin-bottom: 20px; /* Добавляем нижний отступ, чтобы отделить секцию от футера */
+}
+
+.wrapper.style2 .box.person {
+  max-width: 100%; /* Убедитесь, что блоки не выходят за пределы контейнера */
+  margin: 0 auto 20px; /* Отступы между блоками и нижний отступ */
+}
+
+
+#banner .inner, .wrapper .inner {
+  text-align: center;
+}
+
+#banner h1 {
+  font-size: 4em;
+  color: black;
+  font-weight: 700;
+}
+
+#banner p {
+  color: black;
+  font-size: 1.25em;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+#banner .actions {
+  margin-top: 50px; /* Отступ сверху для кнопки BEGIN */
+  text-align: center; /* Центрирование по горизонтали */
+  width: 100%; /* Убедитесь, что actions занимает всю ширину */
+}
+
+#banner .actions .button {
+  background-color: #AA612A;
+  color: white;
+  padding: 17px 40px;
+  border-radius: 10px; /* Закругленные края */
+  text-decoration: none;
+  font-size: 18px; /* Увеличен размер текста */
+  display: inline-block;
+  margin: 0 auto; /* Центрирование кнопки */
+  transition: .3s linear;
+  box-shadow: 0 10px 20px rgba(244, 152, 146, 0.25);
+}
+#banner .actions .button:hover{
+  background-color: #cf7b3c;
+}
+
+.inner {
+  max-width: 100%; /* Уберите любые ограничения на ширину */
+  text-align: center; /* Центрирование содержимого */
+  margin: 0 auto; /* Центрирование блока .inner */
+  padding: 0;
+}
+
+li {
+  list-style: none
+}
+
+ul {
+  list-style: none; /* Убираем маркеры списка */
+  padding: 0; /* Убираем внутренние отступы */
+  margin: 0; /* Убираем внешние отступы */
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.scroll-down img {
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+}
+
+.scroll-down a {
+  display: block;
+  width: 100%;
+  margin: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.scroll-down a:hover {
+  transform: translateY(5px);
+  background-color: #f5f5f5;
+}
+
+/* Стили для секции Who I Am */
+.wrapper.style1 h2 {
+  font-size: 2.5em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.wrapper.style1 p {
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-size: 1.125em;
+}
+
+/* Стили для секции Stuff I Do */
+.wrapper.style2 h2 {
+  font-size: 2.5em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.wrapper.style2 .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+
+.wrapper.style2 .box.person {
+  background: #f7f7f7;
+  padding: 2em;
+  border-radius: 5px;
+  max-width: 500px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.wrapper.style2 .box.person:hover {
+  transform: translateY(-10px);
+}
+
+.wrapper.style2 .box.person .image.round {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1em;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.wrapper.style2 .box.person .image.round img {
+  width: 100%;
+  height: auto;
+}
+
+.wrapper.style2 .box.person h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.wrapper.style2 .box.person p {
+  color: #666;
+  line-height: 1.75;
+  font-size: 1em;
+}
+
+/* Адаптивный дизайн */
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #banner h1 {
+    font-size: 3em;
+  }
+
+  #banner p {
+    font-size: 1.125em;
+  }
+
+  #banner .actions .button {
+    padding: 20px 40px;
+    font-size: 18px;
+  }
+
+  .wrapper.style1 h2,
+  .wrapper.style2 h2 {
+    font-size: 2em;
+  }
+
+  .wrapper.style2 .flex {
+    display: block;
+  }
+
+  .wrapper.style2 .box.person {
+    max-width: 80%;
+    margin: 0 auto 1.5em;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .wrapper {
+    padding: 3em 1.5em;
+  }
+
+  #banner {
+    height: 70vh;
+  }
+
+  #banner h1 {
+    font-size: 2.5em;
+  }
+
+  #banner p {
+    font-size: 1em;
+  }
+
+  #banner .actions .button {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+
+  .wrapper.style1 h2,
+  .wrapper.style2 h2 {
+    font-size: 1.75em;
+  }
+
+  .wrapper.style2 .box.person {
+    padding: 10px; /* Уменьшаем padding на мобильных устройствах */
+  }
+  .wrapper.style2 .flex {
+    flex-direction: column; /* Переводим flex-контейнер в столбик для маленьких экранов */
+  }
+
+  .scroll-down img {
+    width: 30px;
+  }
+}
+
+/* Плавная прокрутка */
+html {
+  scroll-behavior: smooth;
+}

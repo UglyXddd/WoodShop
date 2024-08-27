@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reg.css') }}">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="login-container">
+        <a href="{{ url_for('index') }}" class="back-arrow">&#8592; Назад</a> <!-- Добавлено -->
+        <form class="login-form" action="{{ url_for('reg') }}" method="POST">
+            <h2>Регистрация</h2>
+            <div class="input-group">
+                <label for="first_name">Имя</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+            <div class="input-group">
+                <label for="second_name">Фамилия</label>
+                <input type="text" id="second_name" name="second_name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Введите почту</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Введите пароль</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Подтвердите пароль</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit">Зарегистрироваться</button>
+            <p>Уже есть аккаунт? <a href="{{ url_for('login') }}">Вход</a></p>
+        </form>
+    </div>
+</body>
+</html>

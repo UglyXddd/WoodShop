@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+<div class="contact-view">
+    <main>
+        <div class="contact-page">
+            <h1 class="heading">Контакты мастерской</h1>
+            <div class="contact-info">
+                <div class="info">
+                    <i class="icon-cont fa-home">
+                        <img src="{{ url_for('static', filename='img/home-ico.png') }}" alt="Home" class="icon-img">
+                    </i>
+                    <p>Москва, Вешних Вод, д 14, стр.2</p>
+                </div>
+                <div class="info">
+                    <i class="icon-cont fa-phone">
+                        <img src="{{ url_for('static', filename='img/phone-ico.png') }}" alt="Phone" class="icon-img">
+                    </i>
+                    <p>+0 000 0000000</p>
+                </div>
+                <div class="info">
+                    <i class="icon-cont fa-envelope">
+                        <img src="{{ url_for('static', filename='img/email-ico.png') }}" alt="Email" class="icon-img">
+                    </i>
+                    <p>email@address.com</p>
+                </div>
+                <div class="info">
+                    <i class="icon-cont fa-clock">
+                        <img src="{{ url_for('static', filename='img/clock-ico.png') }}" alt="Clock" class="icon-img">
+                    </i>
+                    <p>Понедельник-пятница 10:00-18:00 <br> Суббота-воскресенье 10:00-15:00</p>
+                </div>
+            </div>
+            <form id="contactForm" class="contact-form" action="/contact" method="POST">
+                <input type="text" id="name" class="textblock" name="name" placeholder="Введите имя" required>
+                <input type="email" id="email" class="textblock" name="email" placeholder="Введите почту" required>
+                <textarea id="message" name="message" placeholder="Введите сообщение" required></textarea>
+                <input type="submit" class="btn" value='Отправить сообщение'>
+            </form>
+            <div class="map-container">
+                <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A5f5f1e2c59b4b3b7e51e8fb2e2c87b0ed2c50b15a20ec8dfc61e1ee1423cf4c1&amp;source=constructor&ll=37.751197%2C55.919982&z=17&pt=37.751197,55.919982,pm2dgl"
+                    width="100%"
+                    height="600"
+                    frameborder="0"
+                    allowfullscreen="true">
+                </iframe>
+            </div>
+        </div>
+    </main>
+</div>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (name === '' || email === '' || message === '') {
+        alert('Все поля должны быть заполнены.');
+        event.preventDefault();
+    } else if (!emailPattern.test(email)) {
+        alert('Введите корректный email.');
+        event.preventDefault();
+    }
+});
+</script>
+{% endblock %}

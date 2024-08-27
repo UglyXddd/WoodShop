@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="login-container">
+        <a href="{{ url_for('index') }}" class="back-arrow">&#8592; Назад</a>
+        <form class="login-form" method="POST">
+            {{ form.hidden_tag() }}
+            <h2>Вход</h2>
+            <div class="input-group">
+                <label for="email">Введите почту</label>
+                {{ form.email(id='email', class_='form-control') }}
+            </div>
+            <div class="input-group">
+                <label for="password">Введите пароль</label>
+                {{ form.password(id='password', class_='form-control') }}
+            </div>
+            <div class="options">
+                <label>
+                    {{ form.remember }} Запомнить
+                </label>
+                <a href="#">Забыл пароль?</a>
+            </div>
+            <button type="submit">Войти</button>
+            <p>Нет аккаунта? <a href="{{ url_for('reg') }}">Зарегистрироваться</a></p>
+        </form>
+    </div>
+</body>
+</html>

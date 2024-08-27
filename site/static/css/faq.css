@@ -1,0 +1,91 @@
+.faq-view {
+  background-color: #fff8e7;
+  color: #333;
+  text-align: center;
+  font-family: Inter;
+  padding: 20px;
+}
+body {
+  margin: 0 auto;
+}
+.faq-container {
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  margin: 0 auto; /* Центрирование по горизонтали */
+  padding: 20px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.faq-answer {
+  display: none;
+  padding-top: 10px;
+  color: #333;
+}
+.arrow-right,
+.arrow-down {
+  font-size: 30px; /* Увеличить размер стрелки */
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Сделать стрелку шире для лучшего выравнивания */
+  height: 40px; /* Сделать стрелку выше для лучшего выравнивания */
+}
+.arrow-down {
+  transform: rotate(90deg);
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.styled-button-1,
+.styled-button-2 {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.styled-button-1 {
+  background-color: #3396ff;
+}
+
+.styled-button-2 {
+  background-color: #00e600;
+}
+
+.styled-button-1:hover {
+  background-color: #0056b3;
+}
+
+.styled-button-2:hover {
+  background-color: #00b300;
+}
+
+.button-icon {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+}

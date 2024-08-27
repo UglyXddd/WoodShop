@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/faq.css') }}">
+
+<div class="faq-view">
+    <main class="faq-container">
+        <h1 class="faq-title">Часто задаваемые вопросы</h1>
+        <div class="faq-item" onclick="toggleAnswer(1)">
+            <div class="faq-question">
+                <p>Я боюсь, что эспандер порвется и ударит меня.</p>
+                <span id="arrow-1" class="arrow-right">&#9656;</span>
+            </div>
+            <div id="answer-1" class="faq-answer">
+                <p>Ответ на вопрос. Ответ на вопрос...</p>
+            </div>
+        </div>
+        <div class="faq-item" onclick="toggleAnswer(2)">
+            <div class="faq-question">
+                <p>Можно ли заниматься с эспандерами мужчинам?</p>
+                <span id="arrow-2" class="arrow-right">&#9656;</span>
+            </div>
+            <div id="answer-2" class="faq-answer">
+                <p>Ответ на вопрос.</p>
+            </div>
+        </div>
+                <div class="faq-item" onclick="toggleAnswer(3)">
+            <div class="faq-question">
+                <p>Можно ли заниматься с эспандерами СОСАТЬ РАКИ?</p>
+                <span id="arrow-3" class="arrow-right">&#9656;</span>
+            </div>
+            <div id="answer-3" class="faq-answer">
+                <p>Ответ на вопрос.</p>
+            </div>
+        </div>
+                <div class="faq-item" onclick="toggleAnswer(4)">
+            <div class="faq-question">
+                <p>Можно ли заниматься с эспандерами МНЕ?</p>
+                <span id="arrow-4" class="arrow-right">&#9656;</span>
+            </div>
+            <div id="answer-4" class="faq-answer">
+                <p>Ответ на вопрос.</p>
+            </div>
+        </div>
+                <div class="faq-item" onclick="toggleAnswer(5)">
+            <div class="faq-question">
+                <p>Можно ли заниматься с эспандерами женщинам?</p>
+                <span id="arrow-5" class="arrow-right">&#9656;</span>
+            </div>
+            <div id="answer-5" class="faq-answer">
+                <p>Ответ на вопрос.</p>
+            </div>
+        </div>
+        <!-- Добавьте остальные вопросы и ответы здесь -->
+    </main>
+    <div class="button-container">
+        <button class="styled-button-1">
+            <img src="{{ url_for('static', filename='img/tg-logo.png') }}" alt="Icon" class="button-icon" />
+            Задать вопрос
+        </button>
+        <button class="styled-button-2">
+            <img src="{{ url_for('static', filename='img/whatsapp-logo.png') }}" alt="Icon" class="button-icon" />
+            Задать вопрос
+        </button>
+    </div>
+</div>
+
+<script>
+function toggleAnswer(index) {
+    var answer = document.getElementById('answer-' + index);
+    var arrow = document.getElementById('arrow-' + index);
+    if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+        arrow.classList.remove('arrow-down');
+        arrow.classList.add('arrow-right');
+    } else {
+        answer.style.display = 'block';
+        arrow.classList.remove('arrow-right');
+        arrow.classList.add('arrow-down');
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,106 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .checkout-details, .order-summary {
+            width: 45%;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .section input[type="text"],
+        .section input[type="email"],
+        .section input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .order-summary {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .order-item img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+
+        .order-item div {
+            flex-grow: 1;
+        }
+
+        .order-item span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .summary-total {
+            margin-top: 20px;
+        }
+
+        .summary-total div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #AA612A;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 105%;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #AA612A;
+            border: 1px solid #AA612A;
+            margin-top: 20px;
+        }
